@@ -1,0 +1,6 @@
+@import '_grid';
+
+.parent {
+    @include listGridBuilder($column-count: 3, $selector: ".child");
+
+}
