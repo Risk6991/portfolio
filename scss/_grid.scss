@@ -3,11 +3,10 @@ $breakpoint-md: 768px; // タブレットサイズ
 $gutter: 16px; // ガター幅
 // mixin
 @mixin screenMin($break-point) {
-  @media screen and (min-width: $break-point) {
-    @content;
-  }
+    @media screen and (min-width: $break-point) {
+        @content;
+    }
 }
-
 /**
 * グリッド⽣成
 *
@@ -22,77 +21,108 @@ $gutter: 16px; // ガター幅
 * @include listGridBuilder($column-count: 3, $sp-style: 'grid');
 */
 @mixin listGridBuilder(
-$column-count,
-$column-gutter: $gutter,
-$selector: "> li",
-$sp-style: "vertical"
+    $column-count,
+    $column-gutter: $gutter,
+    $selector: "> li",
+    $sp-style: "vertical"
 ) {
-// スマホサイズになった時、1列縦並び
- @if $sp-style== "vertical" {
-display: flex;
-flex-flow: column nowrap;
- @include screenMin($breakpoint-md) {
-flex-flow: inherit;
-flex-wrap: wrap;
-margin: calc((#{$column-gutter} / 2) * -1);
- &:nth-child(#{$column-count}n) {
-padding-right: 0;
-
+    // スマホサイズになった時、1列縦並び
+    @if $sp-style== "vertical" {
+        display: flex;
+        flex-flow: column nowrap;
+        @include screenMin($breakpoint-md) {
+            flex-flow: inherit;
+            flex-wrap: wrap;
+            margin: calc((#{$column-gutter} / 2) * -1);
+            &:nth-child(#{$column-count}n) {
+                padding-right: 0;
+            }
+        }
+        #{$selector} {
+            margin-bottom: #{$column-gutter};
+            @content;
+            @include screenMin($breakpoint-md) {
+                padding: calc(#{$column-gutter} / 2);
+                width: calc(100% / #{$column-count});
+                margin-bottom: 0;
+            }
+            a {
+                &:hover,
+                &:focus {
+                    opacity: 0.7;
+                }
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    // スマホサイズになった時、1⾏並びにして横スクロール
+    @else if $sp-style== "horizon" {
+        display: flex;
+        -ms-overflow-style: none;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+        margin: calc((#{$column-gutter} / 2) * -1);
+        @include screenMin($breakpoint-md) {
+            flex-wrap: wrap;
+            flex-flow: inherit;
+            &:nth-child(#{$column-count}n) {
+                padding-right: 0;
+            }
+        }
+        #{$selector} {
+            min-width: 80vw;
+            padding: calc(#{$column-gutter} / 2);
+            @content;
+            @include screenMin($breakpoint-md) {
+                min-width: inherit;
+                width: calc(100% / #{$column-count});
+            }
+            a {
+                &:hover,
+                &:focus {
+                    opacity: 0.7;
+                }
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    // スマホサイズになってもgridレイアウト
+    @else if $sp-style== "grid" {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 calc((#{$column-gutter} / 4) * -1);
+        &:nth-child(#{$column-count}n) {
+            padding-right: 0;
+        }
+        @include screenMin($breakpoint-md) {
+            margin: calc((#{$column-gutter} / 2) * -1);
+        }
+        #{$selector} {
+            padding: calc(#{$column-gutter} / 4);
+            width: calc(100% / #{$column-count});
+            margin-bottom: 0;
+            @content;
+            @include screenMin($breakpoint-md) {
+                padding: calc(#{$column-gutter} / 2);
+            }
+            a {
+                &:hover,
+                &:focus {
+                    opacity: 0.7;
+                }
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }
-}
-#{$selector} {
-margin-bottom: #{$column-gutter};
-@content;
-@include screenMin($breakpoint-md) {
-padding: calc(#{$column-gutter} / 2);
-width: calc(100% / #{$column-count});
-margin-bottom: 0;
-}
-a {
-&:hover,
-&:focus {
-opacity: 0.7;
-}
-}
-img {
-width: 100%;
-height: auto;
-}
-}
-}
-// スマホサイズになった時、1⾏並びにして横スクロール
-@else if $sp-style== "horizon" {
-display: flex;
--ms-overflow-style: none;
-overflow-y: hidden;
-overflow-x: scroll;
--webkit-overflow-scrolling: touch;
-overflow-scrolling: touch;
-margin: calc((#{$column-gutter} / 2) * -1);
-@include screenMin($breakpoint-md) {
-  flex-wrap: wrap;
-flex-flow: inherit;
- &:nth-child(#{$column-count}n) {
-padding-right: 0;
- }
- }
- #{$selector} {
-min-width: 80vw;
-padding: calc(#{$column-gutter} / 2);
- @content;
- @include screenMin($breakpoint-md) {
-min-width: inherit;
-width: calc(100% / #{$column-count});
- }
-a {
- &:hover,
- &:focus {
-opacity: 0.7;
- }
- }
-img {
-width: 100%;
-height: auto;
- }
- }
- }
