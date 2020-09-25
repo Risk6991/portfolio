@@ -2,7 +2,7 @@
 <html class="no-js" lang="ja">
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title>オブジェクトプロパティによるイベントハンドラ登録サンプル</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,33 +14,25 @@
         <link rel="manifest" href="site.webmanifest" />
         <link rel="apple-touch-icon" href="icon.png" />
         <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/style.css" />
 
         <meta name="theme-color" content="#fafafa" />
-        <style>
-            .text-color {
-                color: blueviolet;
-            }
-        </style>
+        <style></style>
     </head>
 
     <body class="flex flex-col items-center">
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
-        <h1 id="headTitle" class="hoge">クリックして別タグの要素取得</h1>
-        <div class="m-10">
-            <button type="button" id="colorChange" class="bg-blue-200 p-2" style="width: 200px;">カラーチェンジ</button>
-            <button type="button" id="colorDefault" class="bg-red-200 p-2" style="width: 200px;">もどす</button>
-        </div>
-        <p class="flex flex-col">
-            <input type="text" id="freewordInput" name="" class="p-5 max-w-screen-sm border">
-            <button type="button" id="inputTrigger" class="bg-blue-200" style="width: 200px;">テキストの取得</button>
-        </p>
-        <p id="showInput">未入力</p>
-
+        <h1 id="" class="">ドロップダウンメニュー</h1>
+        <select name="paymentSelectTrigger" id="paymentSelect">
+            <option value="0">選択してください</option>
+            <option value="1">銀行振込</option>
+            <option value="2">郵便払込</option>
+            <option value="3">クレジットカード</option>
+            <option value="4">代引き</option>
+        </select>
+        <p id="paymentSelectResult"></p>
         <script src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
