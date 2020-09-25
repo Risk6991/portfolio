@@ -2,7 +2,7 @@
 <html class="no-js" lang="ja">
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title>BMI計算</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,26 +21,63 @@
 
         <meta name="theme-color" content="#fafafa" />
         <style>
-            .text-color {
-                color: blueviolet;
+            .red-text {
+                color: red;
+            }
+            .default-font {
+                font-size: 1em;
+            }
+            .displayNone {
+                display: none;
             }
         </style>
     </head>
 
     <body class="flex flex-col items-center">
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <h1 id="headTitle" class="hoge">クリックして別タグの要素取得</h1>
-        <div class="m-10">
-            <button type="button" id="colorChange" class="bg-blue-200 p-2" style="width: 200px;">カラーチェンジ</button>
-            <button type="button" id="colorDefault" class="bg-red-200 p-2" style="width: 200px;">もどす</button>
+        <h1 id="headTitle">BMI計算</h1>
+        <p class="mb-5">身長と体重を入力して計算ボタンをクリックしてください</p>
+        <div class="">
+            <div class="mb-5">
+                <input
+                    class="border-solid border-2 border-gray-600 p-1 mr-3 placeholder-gray-500 placeholder-opacity-50"
+                    type="text"
+                    name="height"
+                    id="heightInput"
+                    placeholder="身長"
+                />cm<br />
+                <span id="heightInputMsg" class="redText"></span>
+            </div>
+            <div class="mb-5">
+                <input
+                    class="border-solid border-2 border-gray-600 p-1 mr-3 placeholder-gray-500 placeholder-opacity-50"
+                    type="text"
+                    name="weight"
+                    id="weightInput"
+                    placeholder="体重"
+                />kg<br />
+                <span id="weightInputMsg" class="redText"></span>
+            </div>
+            <div class="w-full flex justify-center">
+                <button
+                    type="button"
+                    id="calcBMIButton"
+                    class="btn focus:outline-none motion-safe:hover:-translate-y-1 motion-safe:hover:scale-110 transition ease-in-out duration-300"
+                >
+                    <p class="text-white font-bold hover:text-red-600 p-3">
+                        計算
+                    </p>
+                </button>
+            </div>
         </div>
-        <p class="flex flex-col">
-            <input type="text" id="freewordInput" name="" class="p-5 max-w-screen-sm border">
-            <button type="button" id="inputTrigger" class="bg-blue-200" style="width: 200px;">テキストの取得</button>
-        </p>
-        <p id="showInput">未入力</p>
-
+        <div id="resultMessage" class="displayNone">
+            あなたのBMI値は<span
+                id="bmiResult"
+                class="redText default-font"
+            ></span
+            >です。<br />
+            <span id="adviceMessage"></span>
+        </div>
         <script src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>

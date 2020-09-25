@@ -3,3 +3,15 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply w-32 border-solid border-2 border-white shadow-lg rounded-lg;
+    }
+    .btn-red {
+        @apply bg-red-600;
+    }
+    .btn-red:hover {
+        @apply bg-white border-red-600;
+    }
+}
