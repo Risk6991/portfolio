@@ -30,16 +30,14 @@
     <body class="flex flex-col items-center">
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
-        <h1 id="headTitle" class="hoge">クリックして別タグの要素取得</h1>
-        <div class="m-10">
-            <button type="button" id="colorChange" class="bg-blue-200 p-2" style="width: 200px;">カラーチェンジ</button>
-            <button type="button" id="colorDefault" class="bg-red-200 p-2" style="width: 200px;">もどす</button>
-        </div>
-        <p class="flex flex-col">
-            <input type="text" id="freewordInput" name="" class="p-5 max-w-screen-sm border">
-            <button type="button" id="inputTrigger" class="bg-blue-200" style="width: 200px;">テキストの取得</button>
+        <h1 id="headTitle" class="hoge">タグ属性によるイベントハンドラ登録サンプル</h1>
+        <p>
+            <label for="">
+                <input type="checkbox" name="check-all" id="check-all" value="1" onclick="onCheckallChanged()">すべてをチェック
+            </label>
         </p>
-        <p id="showInput">未入力</p>
+        <div class="divide-y divide-gray-400"></div>
+        <label for=""><input type="checkbox" name="skill" id="check-all" value="1" onclick="onCheckallChanged()" class="">すべてをチェック</label><br>
 
         <script src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script src="js/plugins.js"></script>
