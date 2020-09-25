@@ -18,6 +18,10 @@
         <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css"
+        />
 
         <meta name="theme-color" content="#fafafa" />
         <style>
@@ -33,55 +37,77 @@
         </style>
     </head>
 
-    <body class="flex flex-col items-center">
+    <body class="flex flex-col">
         <!-- Add your site or application content here -->
-        <h1 id="headTitle">BMI計算</h1>
-        <p class="mb-5">身長と体重を入力して計算ボタンをクリックしてください</p>
-        <div class="">
-            <div class="mb-5">
-                <input
-                    class="border-solid border-2 border-gray-600 p-1 mr-3 placeholder-gray-500 placeholder-opacity-50"
-                    type="text"
-                    name="height"
-                    id="heightInput"
-                    placeholder="身長"
-                />cm<br />
-                <span id="heightInputMsg" class="redText"></span>
-            </div>
-            <div class="mb-5">
-                <input
-                    class="border-solid border-2 border-gray-600 p-1 mr-3 placeholder-gray-500 placeholder-opacity-50"
-                    type="text"
-                    name="weight"
-                    id="weightInput"
-                    placeholder="体重"
-                />kg<br />
-                <span id="weightInputMsg" class="redText"></span>
-            </div>
-            <div class="w-full flex justify-center">
-                <button
-                    type="button"
-                    id="calcBMIButton"
-                    class="btn btn-red transform motion-reduce:transform-none active:-translate-y-1 transition ease-in-out duration-300"
-                >
-                    <p class="text-white font-bold hover:text-red-600 p-3">
-                        計算
-                    </p>
-                </button>
+        <!-- Swiper START -->
+        <div class="block mb-10">
+            <div class="swiper-container">
+                <!-- メイン表示部分 -->
+                <div class="swiper-wrapper">
+                    <!-- 各スライド -->
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-        <div id="resultMessage" class="displayNone">
-            あなたのBMI値は<span
-                id="bmiResult"
-                class="redText default-font"
-            ></span
-            >です。<br />
-            <span id="adviceMessage"></span>
+        <!-- Swiper END -->
+
+        <div class="w-full">
+            <div class="max-w-lg m-auto">
+                <h1 id="headTitle">BMI計算</h1>
+                <p class="mb-5">身長と体重を入力して計算ボタンをクリックしてください</p>
+                <div class="">
+                    <div class="mb-5">
+                        <input
+                            class="border-solid border-2 border-gray-600 p-1 mr-3 placeholder-gray-500 placeholder-opacity-50"
+                            type="text"
+                            name="height"
+                            id="heightInput"
+                            placeholder="身長"
+                        />cm<br />
+                        <span id="heightInputMsg" class="redText"></span>
+                    </div>
+                    <div class="mb-5">
+                        <input
+                            class="border-solid border-2 border-gray-600 p-1 mr-3 placeholder-gray-500 placeholder-opacity-50"
+                            type="text"
+                            name="weight"
+                            id="weightInput"
+                            placeholder="体重"
+                        />kg<br />
+                        <span id="weightInputMsg" class="redText"></span>
+                    </div>
+                    <div class="w-full flex justify-center">
+                        <button
+                            type="button"
+                            id="calcBMIButton"
+                            class="btn btn-red transform motion-reduce:transform-none active:-translate-y-1 transition ease-in-out duration-300"
+                        >
+                            <p class="text-white font-bold hover:text-red-600 p-3">
+                                計算
+                            </p>
+                        </button>
+                    </div>
+                </div>
+                <div id="resultMessage" class="displayNone">
+                    あなたのBMI値は<span
+                        id="bmiResult"
+                        class="redText default-font"
+                    ></span
+                    >です。<br />
+                    <span id="adviceMessage"></span>
+                </div>
+            </div>
         </div>
         <script src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script src="js/plugins.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
         <script src="js/main.js"></script>
-
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
             window.ga = function () {
