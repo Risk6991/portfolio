@@ -8,6 +8,9 @@
     .btn {
         @apply w-32 border-solid border-2 border-white shadow-lg rounded-lg;
     }
+    .btn:focus {
+        transform: translateY(1px);
+    }
     .btn-red {
         @apply bg-red-600;
     }
