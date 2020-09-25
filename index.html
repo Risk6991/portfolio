@@ -20,26 +20,52 @@
         <link rel="stylesheet" href="css/style.css" />
 
         <meta name="theme-color" content="#fafafa" />
-        <style>
-            .text-color {
-                color: blueviolet;
-            }
-        </style>
+        <style></style>
     </head>
 
-    <body class="flex flex-col items-center">
+    <body class="">
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <h1 id="headTitle" class="hoge">クリックして別タグの要素取得</h1>
-        <div class="m-10">
-            <button type="button" id="colorChange" class="bg-blue-200 p-2" style="width: 200px;">カラーチェンジ</button>
-            <button type="button" id="colorDefault" class="bg-red-200 p-2" style="width: 200px;">もどす</button>
+        <div class="w-1/2 m-auto">
+            <p>Hello world! This is HTML5 Boilerplate.</p>
+            <h1 id="headTitle" class="hoge">
+                タグ属性によるイベントハンドラ登録サンプル
+            </h1>
+            <div class="">
+                <label for="" class="flex items-center my-1">
+                    <input
+                        class="mr-1"
+                        type="checkbox"
+                        name="check-all"
+                        id="check-all"
+                        value="1"
+                    />すべてチェック
+                </label>
+                <div class="w-full"></div>
+            </div>
+            <div class="w-6/12 h-px bg-red-900"></div>
+            <label for="" class="flex items-center my-1">
+                <input
+                    class="mr-1"
+                    type="checkbox"
+                    name="skill"
+                    value="1"
+                />HTML
+            </label>
+            <label for="" class="flex items-center my-1">
+                <input
+                    class="mr-1"
+                    type="checkbox"
+                    name="skill"
+                    value="2"
+                />JavaScript
+            </label>
+            <label for="" class="flex items-center my-1">
+                <input class="mr-1" type="checkbox" name="skill" value="3" />PHP
+            </label>
+            <label for="" class="flex items-center my-1">
+                <input class="mr-1" type="checkbox" name="skill" value="4" />SQL
+            </label>
         </div>
-        <p class="flex flex-col">
-            <input type="text" id="freewordInput" name="" class="p-5 max-w-screen-sm border">
-            <button type="button" id="inputTrigger" class="bg-blue-200" style="width: 200px;">テキストの取得</button>
-        </p>
-        <p id="showInput">未入力</p>
 
         <script src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script src="js/plugins.js"></script>
